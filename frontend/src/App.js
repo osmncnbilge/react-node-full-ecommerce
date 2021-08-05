@@ -1,11 +1,9 @@
 import "./App.css";
-import data from "./data";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
 function App() {
-  console.log(data);
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");
   };
