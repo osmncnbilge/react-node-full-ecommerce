@@ -17,6 +17,8 @@ mongoose
 
 const app = express();
 
+app.use(express.json());
+
 app.use("/api/users", userRoute);
 app.get("/api/products", (req, res) => {
   res.send(data.products);

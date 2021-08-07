@@ -7,14 +7,28 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { cartReducer } from "./reducers/cartReducers";
 import Cookie from "js-cookie";
+import {
+  userRegisterReducer,
+  userSigninReducer,
+} from "./reducers/userReducers";
 
-const cartItems = JSON.parse(Cookie.get("cartItems")) || [];
+const cartItems = Cookie.get("cartItems")
+  ? JSON.parse(Cookie.get("cartItems"))
+  : [];
+const userInfo = Cookie.get("userInfo")
+  ? JSON.parse(Cookie.get("userInfo"))
+  : null;
 
-const initialState = { cart: { cartItems: cartItems } };
+const initialState = {
+  cart: { cartItems: cartItems },
+  userSignin: { userInfo: userInfo },
+};
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
+  userSignin: userSigninReducer,
+  userRegister: userRegisterReducer,
 });
 
 const store = createStore(
