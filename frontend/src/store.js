@@ -22,7 +22,7 @@ const userInfo = Cookie.get("userInfo")
   : null;
 
 const initialState = {
-  cart: { cartItems: cartItems },
+  cart: { cartItems: cartItems, shipping: {}, payment: {} },
   userSignin: { userInfo: userInfo },
 };
 const reducer = combineReducers({
